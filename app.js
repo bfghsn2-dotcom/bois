@@ -840,24 +840,24 @@ let isAdminLoggedIn = false;
 
 // Default products from the main page
 const defaultProducts = [
-  { id: 1, title: 'Planches à découper', badge: 'Planche', desc: 'Planches robustes et élégantes en bois d\'olivier massif, parfaites pour la cuisine quotidienne.', image: 'assets/products/board.svg' },
-  { id: 2, title: 'Saladiers & bols', badge: 'Bol', desc: 'Bols tournés à la main avec des veinures chaudes et naturelles, idéaux pour la table.', image: 'assets/products/bowl.svg' },
-  { id: 3, title: 'Cuillères & ustensiles', badge: 'Ustensile', desc: 'Cuillères douces au toucher, tournées à la main pour la cuisine et la table.', image: 'assets/products/utensil.svg' },
-  { id: 4, title: 'Objets décoratifs', badge: 'Décoration', desc: 'Sculptures et cadres en bois d\'olivier pour embellir votre intérieur avec élégance.', image: 'assets/products/decor.svg' },
-  { id: 5, title: 'Ensembles & coffrets', badge: 'Ensemble', desc: 'Coffrets cadeaux contenant plusieurs pièces assorties, parfaits pour offrir.', image: 'assets/products/set.svg' },
-  { id: 6, title: 'Créations sur mesure', badge: 'Sur mesure', desc: 'Pièces personnalisées selon vos envies, dimensions et finitions adaptées à votre projet.', image: 'assets/products/custom.svg' },
-  { id: 7, title: 'Planches à pizza', badge: 'Pizza', desc: 'Planches rondes élégantes pour présenter et servir vos pizzas avec style.', image: 'assets/products/pizza.svg' },
-  { id: 8, title: 'Jeux d\'échecs', badge: 'Jeu', desc: 'Plateaux d\'échecs artisanaux en bois d\'olivier massif avec pièces sculptées.', image: 'assets/products/game.svg' },
-  { id: 9, title: 'Plateaux carrelés', badge: 'Plateau', desc: 'Plateaux de service avec carrelage bleu traditionnel, parfaits pour la cuisine marocaine.', image: 'assets/products/tray.svg' },
-  { id: 10, title: 'Plateaux avec poignées', badge: 'Plateau', desc: 'Plateaux de service ergonomiques avec poignées intégrées pour un transport facile.', image: 'assets/products/tray.svg' },
-  { id: 11, title: 'Cuillères à sauce', badge: 'Accessoire', desc: 'Cuillères sculptées pour servir les sauces et les condiments avec élégance.', image: 'assets/products/accessory.svg' },
-  { id: 12, title: 'Cuillères à miel', badge: 'Accessoire', desc: 'Cuillères spécialisées pour le miel et les sirops, avec design ergonomique.', image: 'assets/products/accessory.svg' },
-  { id: 13, title: 'Bols emboîtables', badge: 'Bols', desc: 'Ensembles de bols imbriqués en tailles progressives, parfaits pour le rangement et la présentation.', image: 'assets/products/bowl.svg' },
-  { id: 14, title: 'Serveurs à salade', badge: 'Serveurs', desc: 'Paires de serveurs sculptés pour servir les salades et les plats avec élégance et facilité.', image: 'assets/products/utensil.svg' },
-  { id: 15, title: 'Plateaux compartimentés', badge: 'Plateau', desc: 'Plateaux divisés pour les apéritifs et les entrées, avec compartiments séparés pour différents mets.', image: 'assets/products/tray.svg' },
-  { id: 16, title: 'Planches bord vivant', badge: 'Planche', desc: 'Planches avec bords naturels préservés, mettant en valeur la beauté brute du bois d\'olivier.', image: 'assets/products/board.svg' },
-  { id: 17, title: 'Supports de présentation', badge: 'Accessoire', desc: 'Supports sculptés pour présenter les fromages, charcuteries et autres délices culinaires.', image: 'assets/products/accessory.svg' },
-  { id: 18, title: 'Bols à trempage', badge: 'Accessoire', desc: 'Petits bols profonds pour les sauces, les trempettes et les condiments, avec design ergonomique.', image: 'assets/products/bowl.svg' }
+  { id: 1, title: 'Planches à découper', badge: 'Planche', desc: 'Planches robustes et élégantes en bois d\'olivier massif, parfaites pour la cuisine quotidienne.', image: '468478540_122119761698408758_6962530975880641933_n.jpg' },
+  { id: 2, title: 'Saladiers & bols', badge: 'Bol', desc: 'Bols tournés à la main avec des veinures chaudes et naturelles, idéaux pour la table.', image: '468965849_122119796354408758_1435340378803735449_n.jpg' },
+  { id: 3, title: 'Cuillères & ustensiles', badge: 'Ustensile', desc: 'Cuillères douces au toucher, tournées à la main pour la cuisine et la table.', image: '471345001_122121498350408758_5921693924745812988_n.jpg' },
+  { id: 4, title: 'Objets décoratifs', badge: 'Décoration', desc: 'Sculptures et cadres en bois d\'olivier pour embellir votre intérieur avec élégance.', image: '476837024_122125849628408758_962390434507096899_n.jpg' },
+  { id: 5, title: 'Ensembles & coffrets', badge: 'Ensemble', desc: 'Coffrets cadeaux contenant plusieurs pièces assorties, parfaits pour offrir.', image: '479028287_122125849712408758_5942596709485329919_n.jpg' },
+  { id: 6, title: 'Créations sur mesure', badge: 'Sur mesure', desc: 'Pièces personnalisées selon vos envies, dimensions et finitions adaptées à votre projet.', image: '480200507_122126125286408758_6887589522929279881_n.jpg' },
+  { id: 7, title: 'Planches à pizza', badge: 'Pizza', desc: 'Planches rondes élégantes pour présenter et servir vos pizzas avec style.', image: '480265199_122126205350408758_8468459730399600205_n.jpg' },
+  { id: 8, title: 'Jeux d\'échecs', badge: 'Jeu', desc: 'Plateaux d\'échecs artisanaux en bois d\'olivier massif avec pièces sculptées.', image: '480278272_122126125592408758_2469784167780209626_n.jpg' },
+  { id: 9, title: 'Plateaux carrelés', badge: 'Plateau', desc: 'Plateaux de service avec carrelage bleu traditionnel, parfaits pour la cuisine marocaine.', image: '480509497_122126205224408758_8151606063983945325_n.jpg' },
+  { id: 10, title: 'Plateaux avec poignées', badge: 'Plateau', desc: 'Plateaux de service ergonomiques avec poignées intégrées pour un transport facile.', image: '481293043_122127457634408758_6937352910192162664_n.jpg' },
+  { id: 11, title: 'Cuillères à sauce', badge: 'Accessoire', desc: 'Cuillères sculptées pour servir les sauces et les condiments avec élégance.', image: '498116984_122133766796408758_6860923200289440656_n.jpg' },
+  { id: 12, title: 'Cuillères à miel', badge: 'Accessoire', desc: 'Cuillères spécialisées pour le miel et les sirops, avec design ergonomique.', image: '498151033_122133766838408758_4041544626423466607_n.jpg' },
+  { id: 13, title: 'Bols emboîtables', badge: 'Bols', desc: 'Ensembles de bols imbriqués en tailles progressives, parfaits pour le rangement et la présentation.', image: '498684481_122133766670408758_8484675011533782689_n.jpg' },
+  { id: 14, title: 'Serveurs à salade', badge: 'Serveurs', desc: 'Paires de serveurs sculptés pour servir les salades et les plats avec élégance et facilité.', image: '499486616_122133766754408758_9150755263986822585_n.jpg' },
+  { id: 15, title: 'Plateaux compartimentés', badge: 'Plateau', desc: 'Plateaux divisés pour les apéritifs et les entrées, avec compartiments séparés pour différents mets.', image: '504793595_122135422340408758_981328163088410228_n.jpg' },
+  { id: 16, title: 'Planches bord vivant', badge: 'Planche', desc: 'Planches avec bords naturels préservés, mettant en valeur la beauté brute du bois d\'olivier.', image: '504918659_122135422382408758_4309854498009636760_n.jpg' },
+  { id: 17, title: 'Supports de présentation', badge: 'Accessoire', desc: 'Supports sculptés pour présenter les fromages, charcuteries et autres délices culinaires.', image: '504952303_122135418050408758_2896108397240998_n.jpg' },
+  { id: 18, title: 'Bols à trempage', badge: 'Accessoire', desc: 'Petits bols profonds pour les sauces, les trempettes et les condiments, avec design ergonomique.', image: '504970058_122135422298408758_355817291882820996_n.jpg' }
 ];
 
 // Initialize products on first load
