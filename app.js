@@ -711,11 +711,20 @@ function updateLangButtons() {
 function initNavigation() {
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
+  const navCloseBtn = document.getElementById('nav-close-btn');
   
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    });
+  }
+  
+  // Close menu with close button
+  if (navCloseBtn) {
+    navCloseBtn.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
     });
   }
   
