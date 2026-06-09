@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artis'Olive Wood — Artisanat en bois d'olivier. Créations faites main à Sfax, Tunisie." />
+  <title>Artis'Olive Wood — Crafted With Passion</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <style>
+    :root {
+  --olive-dark: #3d4f38;
+  --olive: #5e7d52;
+  --olive-light: #7a9a6e;
+  --wood: #4b3621;
+  --wood-light: #6b5240;
+  --wood-pale: #d4c4b0;
+  --cream: #ececec;
+  --cream-dark: #e0e0e0;
+  --text: #4b3621;
+  --text-muted: #6b7268;
+  --white: #ffffff;
+  --accent: #5e7d52;
+  --accent-glow: rgba(94, 125, 82, 0.2);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 4px 24px rgba(75, 54, 33, 0.08);
+  --shadow-lg: 0 12px 48px rgba(75, 54, 33, 0.12);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.container {
+  width: min(1140px, 92vw);
+  margin-inline: auto;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.75rem 0;
+  transition: var(--transition);
+}
+
+.header.scrolled {
+  background: rgba(236, 236, 236, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.nav-links a:hover { color: var(--olive); }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lang-switcher {
+  display: flex;
+  background: var(--cream-dark);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  background: var(--white);
+  color: var(--wood);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--wood);
+  border-radius: 2px;
+}
+
+.cart-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.cart-button:hover {
+  background: var(--olive);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.cart-icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #c0392b;
+  color: var(--white);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 2px solid var(--cream);
+  box-shadow: var(--shadow);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--olive);
+  color: var(--white);
+  border-color: var(--olive);
+}
+
+.btn-primary:hover {
+  background: var(--olive-dark);
+  border-color: var(--olive-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--wood);
+  border-color: var(--olive-light);
+}
+
+.btn-outline:hover {
+  background: var(--olive);
+  color: var(--white);
+  border-color: var(--olive);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 7rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--olive);
+  top: -10%;
+  right: -5%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 350px;
+  height: 350px;
+  background: var(--wood-pale);
+  bottom: 10%;
+  left: -8%;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+  width: 200px;
+  height: 200px;
+  background: var(--olive-light);
+  top: 40%;
+  left: 30%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -30px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-left: 4vw;
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--olive);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--wood);
+  margin-bottom: 1.25rem;
+}
+
+.hero-title span { display: block; }
+
+.hero-title-accent {
+  color: var(--olive);
+  font-style: italic;
+}
+
+.hero-leaf {
+  display: inline !important;
+  font-size: 0.7em;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.stat { display: flex; flex-direction: column; }
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--olive);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+
+.hero-logo {
+  max-width: min(360px, 90vw);
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 12px 32px rgba(75, 54, 33, 0.12));
+}
+
+/* Sections */
+.section { padding: 5rem 0; }
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--wood);
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Services */
+.services { background: var(--white); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--wood-pale);
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-glow);
+  border-radius: var(--radius);
+  color: var(--olive);
+  margin-bottom: 1.5rem;
+}
+
+.service-icon svg { width: 32px; height: 32px; }
+
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--wood);
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Creations */
+.creations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.creation-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.creation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--wood-pale);
+}
+
+.creation-accent {
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--wood), var(--olive));
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.creation-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--wood);
+  margin-bottom: 0.5rem;
+}
+
+.creation-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Products */
+.products { background: var(--white); }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--olive);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+}
+
+.product-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.product-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--wood);
+  padding: 1rem 1.25rem 0.5rem;
+}
+
+.product-card > p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0 1.25rem 1rem;
+  flex: 1;
+  line-height: 1.55;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--cream-dark);
+  flex-wrap: wrap;
+}
+
+.quantity-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.qty-input {
+  width: 56px;
+  padding: 0.35rem 0.5rem;
+  border: 2px solid var(--cream-dark);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  background: var(--white);
+}
+
+.product-price {
+  font-weight: 600;
+  color: var(--olive);
+  font-size: 0.9rem;
+}
+
+/* Process */
+.process { background: var(--cream); }
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.process-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.process-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.process-image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.process-number {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: var(--olive);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.process-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.process-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--wood);
+  padding: 1.25rem 1.25rem 0.5rem;
+}
+
+.process-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0 1.25rem 1.25rem;
+  line-height: 1.55;
+}
+
+/* About */
+.about { background: var(--white); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-logo {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 8px 24px rgba(75, 54, 33, 0.1));
+}
+
+.about-content .section-title { text-align: left; }
+.about-content .section-tag { display: block; text-align: left; }
+
+.about-content p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.about-features {
+  list-style: none;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.about-features li {
+  font-weight: 500;
+  color: var(--olive);
+}
+
+/* Contact */
+.contact {
+  background: var(--white);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(300px, 1.4fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contact-info-title,
+.contact-form-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--wood);
+  margin-bottom: 1.25rem;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--cream);
+  border-radius: var(--radius);
+  border: 1px solid var(--cream-dark);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--wood-pale);
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-glow);
+  border-radius: var(--radius);
+  color: var(--olive);
+  flex-shrink: 0;
+}
+
+.contact-icon svg { width: 22px; height: 22px; }
+
+.contact-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.contact-value {
+  font-weight: 500;
+  color: var(--wood);
+  font-size: 0.95rem;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.contact-form {
+  background: var(--cream);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--cream-dark);
+  box-shadow: var(--shadow);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group { margin-bottom: 1.25rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--wood);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--cream-dark);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: var(--white);
+  color: var(--text);
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--olive);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.contact-form .btn { width: 100%; margin-top: 0.5rem; }
+
+/* Products Management */
+.products-management {
+  margin-top: 1.5rem;
+}
+
+.products-list {
+  margin-top: 1.5rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.product-item {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.product-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.product-item > div {
+  flex: 1;
+}
+
+.product-item h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text);
+}
+
+.product-item p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.product-image-preview {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: var(--cream);
+  border-radius: 6px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-preview img {
+  max-width: 200px;
+  max-height: 300px;
+  border-radius: 6px;
+}
+
+/* Footer */
+.footer {
+  background: var(--wood);
+  color: var(--cream);
+  padding: 3.5rem 0 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.footer-logo-wrap {
+  background: var(--cream);
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo {
+  height: 72px;
+  width: auto;
+  display: block;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--olive-light);
+}
+
+.footer-nav-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--wood-pale);
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--olive-light); }
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-contact-item {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word;
+  transition: color var(--transition);
+}
+
+a.footer-contact-item:hover { color: var(--olive-light); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.25rem 0 1.75rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--wood-pale);
+  opacity: 0.9;
+}
+
+/* Admin */
+.admin-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--wood);
+  color: var(--white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  transition: var(--transition);
+}
+
+.admin-btn:hover {
+  background: var(--olive);
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(75, 54, 33, 0.5);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-content.admin-dashboard { max-width: 640px; }
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.close:hover { color: var(--wood); }
+
+.modal-content h2 {
+  font-family: var(--font-display);
+  color: var(--wood);
+  margin-bottom: 1.5rem;
+  padding-right: 2rem;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tab-btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--cream-dark);
+  background: var(--cream);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.admin-tab-btn.active {
+  background: var(--olive);
+  color: var(--white);
+  border-color: var(--olive);
+}
+
+.admin-tab-content { display: none; }
+.admin-tab-content.active { display: block; }
+
+.orders-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+}
+
+.order-item {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-box {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.stat-box .stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.stat-box .stat-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--olive);
+}
+
+.order-summary {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.error-message {
+  color: #c0392b;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.success-message {
+  color: var(--olive);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 6rem;
+  }
+
+  .hero-content { padding-left: 0; }
+  .hero-desc { margin-inline: auto; }
+  .hero-cta { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-visual { height: 280px; margin-top: 1.5rem; }
+  .hero-logo { max-width: min(280px, 75vw); }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .creations-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; text-align: center; }
+  .footer-brand { align-items: center; }
+  .footer-links { align-items: center; }
+  .footer-contact { align-items: center; }
+
+  .nav { position: relative; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--cream);
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow-lg);
+    gap: 1rem;
+    margin-top: 0.5rem;
+    border-radius: var(--radius);
+  }
+
+  .nav-links.open { display: flex; }
+  .menu-toggle { display: flex; }
+  .logo-img { height: 44px; }
+}
+
+@media (max-width: 700px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 1rem; align-items: center; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .contact-form,
+  .contact-card { padding: 1rem 1.15rem; }
+}
+
+  </style>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#hero" class="logo">
+        <img src="assets/logo.png" alt="Artis'Olive Wood" class="logo-img" />
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="services.html" data-i18n="nav.services">Artisanat</a></li>
+        <li><a href="products.html" data-i18n="nav.products">Produits</a></li>
+        <li><a href="creations.html" data-i18n="nav.creations">Créations</a></li>
+        <li><a href="process.html" data-i18n="nav.process">Processus</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+        </div>
+        <a href="cart.html" class="cart-button" id="cart-button" title="Mon panier">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow" data-i18n="hero.eyebrow">Artisanat du bois d'olivier</p>
+        <h1 class="hero-title">
+          <span data-i18n="hero.title1">Bois d'Olive</span>
+          <span class="hero-title-accent" data-i18n="hero.title2">Crafted With Passion</span>
+          <span class="hero-leaf">🌿</span>
+        </h1>
+        <p class="hero-desc" data-i18n="hero.desc">
+          Nous façonnons à la main des pièces uniques en bois d'olivier : ustensiles, planches, objets décoratifs et créations sur mesure.
+        </p>
+        <div class="hero-cta">
+          <a href="creations.html" class="btn btn-primary" data-i18n="hero.cta1">Découvrir nos créations</a>
+          <a href="contact.html" class="btn btn-outline" data-i18n="hero.cta2">Nous contacter</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label" data-i18n="hero.stat1">Bois d'olivier</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">✦</span>
+            <span class="stat-label" data-i18n="hero.stat2">Fait main</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">Sfax</span>
+            <span class="stat-label" data-i18n="hero.stat3">Tunisie</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/logo.png" alt="" class="hero-logo" aria-hidden="true" />
+      </div>
+    </section>
+
+    <section class="services section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="services.tag">Notre savoir-faire</span>
+          <h2 class="section-title" data-i18n="services.title">Artisanat en Bois</h2>
+          <p class="section-desc" data-i18n="services.desc">Chaque pièce est taillée, poncée et finie à la main avec le respect d'une tradition séculaire.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M10 38L18 10h12l8 28H10z" stroke="currentColor" stroke-width="2"/><path d="M14 30h20" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3 data-i18n="services.s1.title">Créations sur mesure</h3>
+            <p data-i18n="services.s1.desc">Pièces personnalisées selon vos envies : dimensions, formes et finitions adaptées à chaque projet.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="28" rx="16" ry="10" stroke="currentColor" stroke-width="2"/><path d="M24 18v-6M20 12h8" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3 data-i18n="services.s2.title">Ustensiles & cuisine</h3>
+            <p data-i18n="services.s2.desc">Planches à découper, saladiers, cuillères et accessoires de cuisine en bois d'olivier naturel.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="12" y="14" width="24" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 22h24M18 14V10M30 14V10" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3 data-i18n="services.s3.title">Décoration & mobilier</h3>
+            <p data-i18n="services.s3.desc">Objets décoratifs, cadres, étagères et petits meubles sculptés dans le bois d'olivier le plus noble.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="creations section" id="creations">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="creations.tag">Nos créations</span>
+          <h2 class="section-title" data-i18n="creations.title">Pièces Artisanales</h2>
+          <p class="section-desc" data-i18n="creations.desc">Le bois d'olivier offre des veinures uniques — chaque pièce est donc véritablement unique.</p>
+        </div>
+        <div class="creations-grid">
+          <article class="creation-card">
+            <div class="creation-accent"></div>
+            <h3 data-i18n="creations.p1.title">Planches à découper</h3>
+            <p data-i18n="creations.p1.desc">Robustes et élégantes, parfaites pour la cuisine quotidienne.</p>
+          </article>
+          <article class="creation-card">
+            <div class="creation-accent"></div>
+            <h3 data-i18n="creations.p2.title">Saladiers & bols</h3>
+            <p data-i18n="creations.p2.desc">Tournés à la main, aux veinures chaudes et naturelles.</p>
+          </article>
+          <article class="creation-card">
+            <div class="creation-accent"></div>
+            <h3 data-i18n="creations.p3.title">Cuillères & ustensiles</h3>
+            <p data-i18n="creations.p3.desc">Douces au toucher, idéales pour la cuisine et la table.</p>
+          </article>
+          <article class="creation-card">
+            <div class="creation-accent"></div>
+            <h3 data-i18n="creations.p4.title">Objets décoratifs</h3>
+            <p data-i18n="creations.p4.desc">Sculptures, cadres et pièces d'art pour embellir votre intérieur.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="products section" id="products" style="display: none;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="products.tag">Nos produits</span>
+          <h2 class="section-title" data-i18n="products.title">Produits en Bois d'Olivier</h2>
+          <p class="section-desc" data-i18n="products.desc">Découvrez notre collection complète de produits artisanaux, chacun unique et façonné avec passion.</p>
+        </div>
+        <div class="products-grid"></div>
+      </div>
+    </section>
+
+    <section class="process section" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="process.tag">Notre processus</span>
+          <h2 class="section-title" data-i18n="process.title">Du Bois Brut à l'Œuvre d'Art</h2>
+          <p class="section-desc" data-i18n="process.desc">Découvrez le voyage de transformation du bois d'olivier brut en pièces artisanales magnifiques.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="process-image" style="background: linear-gradient(135deg, #8B6F47 0%, #5D4E37 100%); position: relative; overflow: hidden;">
+              <div class="process-number">1</div>
+              <svg class="process-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 40 Q20 20 50 15 Q80 20 80 40 L75 70 Q75 75 70 75 L30 75 Q25 75 25 70 Z" fill="#D4A574" stroke="#F5E6D3" stroke-width="2"/><path d="M40 30 L60 30 M35 45 L65 45 M40 60 L60 60" stroke="#F5E6D3" stroke-width="1.5"/></svg>
+            </div>
+            <h3 data-i18n="process.p1.title">Sélection du bois</h3>
+            <p data-i18n="process.p1.desc">Nous sélectionnons les plus beaux bois d'olivier, en cherchant les veinures et les motifs naturels les plus remarquables.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-image" style="background: linear-gradient(135deg, #8B6F47 0%, #5D4E37 100%); position: relative; overflow: hidden;">
+              <div class="process-number">2</div>
+              <svg class="process-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="30" width="60" height="40" rx="3" fill="#D4A574" stroke="#F5E6D3" stroke-width="2"/><path d="M30 40 L70 60 M70 40 L30 60" stroke="#F5E6D3" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 data-i18n="process.p2.title">Découpe et façonnage</h3>
+            <p data-i18n="process.p2.desc">Le bois est découpé et façonné selon les formes désirées, en utilisant des techniques traditionnelles et modernes.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-image" style="background: linear-gradient(135deg, #8B6F47 0%, #5D4E37 100%); position: relative; overflow: hidden;">
+              <div class="process-number">3</div>
+              <svg class="process-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="30" fill="#D4A574" stroke="#F5E6D3" stroke-width="2"/><path d="M35 50 Q35 40 50 35 Q65 40 65 50" fill="#D4A574" stroke="#F5E6D3" stroke-width="1.5"/><circle cx="45" cy="55" r="2" fill="#F5E6D3"/><circle cx="55" cy="55" r="2" fill="#F5E6D3"/></svg>
+            </div>
+            <h3 data-i18n="process.p3.title">Ponçage et finition</h3>
+            <p data-i18n="process.p3.desc">Chaque pièce est poncée à la main pour obtenir une surface lisse et agréable au toucher.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-image" style="background: linear-gradient(135deg, #8B6F47 0%, #5D4E37 100%); position: relative; overflow: hidden;">
+              <div class="process-number">4</div>
+              <svg class="process-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 35 L50 25 L70 35 L65 70 Q65 75 60 75 L40 75 Q35 75 35 70 Z" fill="#D4A574" stroke="#F5E6D3" stroke-width="2"/><path d="M45 45 L55 45 M45 55 L55 55 M45 65 L55 65" stroke="#F5E6D3" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 data-i18n="process.p4.title">Traitement naturel</h3>
+            <p data-i18n="process.p4.desc">Les pièces sont traitées avec des huiles naturelles pour protéger le bois et mettre en valeur sa beauté.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <img src="assets/logo.png" alt="Artis'Olive Wood" class="about-logo" />
+        </div>
+        <div class="about-content">
+          <span class="section-tag" data-i18n="about.tag">À propos</span>
+          <h2 class="section-title" data-i18n="about.title">Façonné avec passion</h2>
+          <p data-i18n="about.p1">
+            Artis'Olive Wood est un atelier artisanal basé à Sfax, Tunisie. Nous travaillons exclusivement le bois d'olivier — un matériau noble, dense et durable, aux veinures magnifiques.
+          </p>
+          <p data-i18n="about.p2">
+            Chaque pièce est façonnée à la main, du choix du bois à la finition finale, avec une attention méticuleuse portée aux détails pour des objets authentiques et intemporels.
+          </p>
+          <ul class="about-features">
+            <li data-i18n="about.f1">✦ Bois d'olivier 100% naturel</li>
+            <li data-i18n="about.f2">✦ Artisanat fait main à Sfax</li>
+            <li data-i18n="about.f3">✦ Commandes personnalisées sur demande</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="contact.tag">Contact</span>
+          <h2 class="section-title" data-i18n="contact.title">Commandez votre pièce</h2>
+          <p class="section-desc" data-i18n="contact.desc">Une idée, une mesure, un projet ? Contactez-nous pour une création sur mesure.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3 class="contact-info-title" data-i18n="contact.infoTitle">Coordonnées</h3>
+            <div class="contact-cards">
+            <a href="tel:+21652435930" class="contact-card">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/></svg>
+              </div>
+              <div>
+                <span class="contact-label" data-i18n="contact.phone">Téléphone</span>
+                <span class="contact-value">52 435 930</span>
+              </div>
+            </a>
+            <a href="mailto:artisolivewood2026@gmail.com" class="contact-card">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+              </div>
+              <div>
+                <span class="contact-label" data-i18n="contact.email">Email</span>
+                <span class="contact-value">artisolivewood2026@gmail.com</span>
+              </div>
+            </a>
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
+              </div>
+              <div>
+                <span class="contact-label" data-i18n="contact.location">Localisation</span>
+                <span class="contact-value">Sfax, Tunisie</span>
+              </div>
+            </div>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <h3 class="contact-form-title" data-i18n="contact.formTitle">Envoyez-nous un message</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" data-i18n="form.name">Nom</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email" data-i18n="form.email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject" data-i18n="form.subject">Sujet</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message" data-i18n="form.message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-i18n="form.submit">Envoyer le message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img src="assets/logo.png" alt="Artis'Olive Wood" class="footer-logo" />
+          </div>
+          <p class="footer-tagline" data-i18n="footer.tagline">Crafted With Passion</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <p class="footer-nav-title" data-i18n="footer.navTitle">Navigation</p>
+          <div class="footer-links">
+            <a href="#services" data-i18n="nav.services">Artisanat</a>
+            <a href="#creations" data-i18n="nav.creations">Créations</a>
+            <a href="#products" data-i18n="nav.products">Produits</a>
+            <a href="#process" data-i18n="nav.process">Processus</a>
+            <a href="#about" data-i18n="nav.about">À propos</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+          </div>
+        </nav>
+        <div class="footer-contact">
+          <p class="footer-nav-title" data-i18n="footer.contactTitle">Contact</p>
+          <a href="tel:+21652435930" class="footer-contact-item">52 435 930</a>
+          <a href="mailto:artisolivewood2026@gmail.com" class="footer-contact-item">artisolivewood2026@gmail.com</a>
+          <span class="footer-contact-item">Sfax, Tunisie</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy" data-i18n="footer.copy">© 2026 Artis'Olive Wood. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Admin Button -->
+  <button class="admin-btn" id="admin-btn" title="Admin">⚙️</button>
+
+  <!-- Admin Login Modal -->
+  <div id="admin-login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-login-modal">&times;</span>
+      <h2 data-i18n="admin.login.title">Admin Login</h2>
+      <div class="form-group">
+        <label for="admin-password" data-i18n="admin.login.password">Mot de passe:</label>
+        <input type="password" id="admin-password" placeholder="Entrez le mot de passe">
+      </div>
+      <button class="btn btn-primary" id="admin-login-btn" data-i18n="admin.login.submit">Se connecter</button>
+      <p id="login-error" class="error-message"></p>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Modal -->
+  <div id="admin-dashboard-modal" class="modal">
+    <div class="modal-content admin-dashboard">
+      <span class="close" id="close-admin-modal">&times;</span>
+      <h2 data-i18n="admin.dashboard.title">Tableau de bord Admin</h2>
+      
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" data-tab="orders" data-i18n="admin.tabs.orders">Commandes</button>
+        <button class="admin-tab-btn" data-tab="products" data-i18n="admin.tabs.products">Produits</button>
+        <button class="admin-tab-btn" data-tab="stats" data-i18n="admin.tabs.stats">Statistiques</button>
+      </div>
+
+      <div id="orders-tab" class="admin-tab-content active">
+        <h3 data-i18n="admin.orders.title">Commandes reçues</h3>
+        <div id="orders-list" class="orders-list">
+          <p data-i18n="admin.orders.empty">Aucune commande pour le moment</p>
+        </div>
+      </div>
+
+      <div id="products-tab" class="admin-tab-content">
+        <h3>Gestion des produits</h3>
+        <div class="products-management">
+          <button class="btn btn-primary btn-small" id="add-product-btn">+ Ajouter un produit</button>
+          <div id="products-list" class="products-list"></div>
+        </div>
+      </div>
+
+      <div id="stats-tab" class="admin-tab-content">
+        <h3 data-i18n="admin.stats.title">Statistiques</h3>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-label" data-i18n="admin.stats.total_orders">Total des commandes:</span>
+            <span class="stat-value" id="total-orders">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label" data-i18n="admin.stats.total_items">Total des articles:</span>
+            <span class="stat-value" id="total-items">0</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-outline" id="logout-btn" data-i18n="admin.logout">Déconnexion</button>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div id="order-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-order-modal">&times;</span>
+      <h2 data-i18n="order.title">Confirmer la commande</h2>
+      <div id="order-summary" class="order-summary"></div>
+      <div class="form-group">
+        <label for="customer-name" data-i18n="order.name">Nom:</label>
+        <input type="text" id="customer-name" placeholder="Votre nom">
+      </div>
+      <div class="form-group">
+        <label for="customer-email" data-i18n="order.email">Email:</label>
+        <input type="email" id="customer-email" placeholder="Votre email">
+      </div>
+      <div class="form-group">
+        <label for="customer-phone" data-i18n="order.phone">Téléphone:</label>
+        <input type="tel" id="customer-phone" placeholder="Votre téléphone">
+      </div>
+      <div class="form-group">
+        <label for="customer-notes" data-i18n="order.notes">Notes spéciales:</label>
+        <textarea id="customer-notes" rows="3" placeholder="Remarques supplémentaires"></textarea>
+      </div>
+      <button class="btn btn-primary" id="submit-order-btn" data-i18n="order.submit">Soumettre la commande</button>
+      <p id="order-success" class="success-message"></p>
+    </div>
+  </div>
+
+  <!-- Product Edit Modal -->
+  <div id="product-edit-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-product-modal">&times;</span>
+      <h2>Éditer le produit</h2>
+      <div class="form-group">
+        <label for="product-name">Nom du produit:</label>
+        <input type="text" id="product-name" placeholder="Nom du produit">
+      </div>
+      <div class="form-group">
+        <label for="product-desc">Description:</label>
+        <textarea id="product-desc" rows="3" placeholder="Description du produit"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="product-image">Image (URL):</label>
+        <input type="text" id="product-image" placeholder="URL de l'image">
+      </div>
+      <div class="form-group">
+        <label for="product-image-upload">Ou télécharger une image:</label>
+        <input type="file" id="product-image-upload" accept="image/*">
+      </div>
+      <div id="product-image-preview" class="product-image-preview"></div>
+      <button class="btn btn-primary" id="save-product-btn">Enregistrer</button>
+      <button class="btn btn-outline" id="delete-product-btn">Supprimer</button>
+    </div>
+  </div>
+
+  <script>
+    /* ========================================
+   INTERNATIONALIZATION (i18n)
+   ======================================== */
+
+const translations = {
+  fr: {
+    'nav.services': 'Artisanat',
+    'nav.creations': 'Créations',
+    'nav.products': 'Produits',
+    'nav.process': 'Processus',
+    'nav.about': 'À propos',
+    'nav.contact': 'Contact',
+    
+    'hero.eyebrow': 'Artisanat du bois d\'olivier',
+    'hero.title1': 'Bois d\'Olive',
+    'hero.title2': 'Crafted With Passion',
+    'hero.desc': 'Nous façonnons à la main des pièces uniques en bois d\'olivier : ustensiles, planches, objets décoratifs et créations sur mesure.',
+    'hero.cta1': 'Découvrir nos créations',
+    'hero.cta2': 'Nous contacter',
+    'hero.stat1': 'Bois d\'olivier',
+    'hero.stat2': 'Fait main',
+    'hero.stat3': 'Tunisie',
+    
+    'services.tag': 'Notre savoir-faire',
+    'services.title': 'Artisanat en Bois',
+    'services.desc': 'Chaque pièce est taillée, poncée et finie à la main avec le respect d\'une tradition séculaire.',
+    'services.s1.title': 'Créations sur mesure',
+    'services.s1.desc': 'Pièces personnalisées selon vos envies : dimensions, formes et finitions adaptées à chaque projet.',
+    'services.s2.title': 'Ustensiles & cuisine',
+    'services.s2.desc': 'Planches à découper, saladiers, cuillères et accessoires de cuisine en bois d\'olivier naturel.',
+    'services.s3.title': 'Décoration & mobilier',
+    'services.s3.desc': 'Objets décoratifs, cadres, étagères et petits meubles sculptés dans le bois d\'olivier le plus noble.',
+    
+    'creations.tag': 'Nos créations',
+    'creations.title': 'Pièces Artisanales',
+    'creations.desc': 'Le bois d\'olivier offre des veinures uniques — chaque pièce est donc véritablement unique.',
+    'creations.p1.title': 'Planches à découper',
+    'creations.p1.desc': 'Robustes et élégantes, parfaites pour la cuisine quotidienne.',
+    'creations.p2.title': 'Saladiers & bols',
+    'creations.p2.desc': 'Tournés à la main, aux veinures chaudes et naturelles.',
+    'creations.p3.title': 'Cuillères & ustensiles',
+    'creations.p3.desc': 'Douces au toucher, idéales pour la cuisine et la table.',
+    'creations.p4.title': 'Objets décoratifs',
+    'creations.p4.desc': 'Sculptures, cadres et pièces d\'art pour embellir votre intérieur.',
+    
+    'products.tag': 'Nos produits',
+    'products.title': 'Produits en Bois d\'Olivier',
+    'products.desc': 'Découvrez notre collection complète de produits artisanaux, chacun unique et façonné avec passion.',
+    'products.badge1': 'Planche',
+    'products.badge2': 'Bol',
+    'products.badge3': 'Ustensile',
+    'products.badge4': 'Décoration',
+    'products.badge5': 'Ensemble',
+    'products.badge6': 'Sur mesure',
+    'products.badge7': 'Pizza',
+    'products.badge8': 'Jeu',
+    'products.badge9': 'Plateau',
+    'products.badge10': 'Plateau',
+    'products.badge11': 'Accessoire',
+    'products.badge12': 'Accessoire',
+    'products.p1.title': 'Planches à découper',
+    'products.p1.desc': 'Planches robustes et élégantes en bois d\'olivier massif, parfaites pour la cuisine quotidienne.',
+    'products.p2.title': 'Saladiers & bols',
+    'products.p2.desc': 'Bols tournés à la main avec des veinures chaudes et naturelles, idéaux pour la table.',
+    'products.p3.title': 'Cuillères & ustensiles',
+    'products.p3.desc': 'Cuillères douces au toucher, tournées à la main pour la cuisine et la table.',
+    'products.p4.title': 'Objets décoratifs',
+    'products.p4.desc': 'Sculptures et cadres en bois d\'olivier pour embellir votre intérieur avec élégance.',
+    'products.p5.title': 'Ensembles & coffrets',
+    'products.p5.desc': 'Coffrets cadeaux contenant plusieurs pièces assorties, parfaits pour offrir.',
+    'products.p6.title': 'Créations sur mesure',
+    'products.p6.desc': 'Pièces personnalisées selon vos envies, dimensions et finitions adaptées à votre projet.',
+    'products.p7.title': 'Planches à pizza',
+    'products.p7.desc': 'Planches rondes élégantes pour présenter et servir vos pizzas avec style.',
+    'products.p8.title': 'Jeux d\'échecs',
+    'products.p8.desc': 'Plateaux d\'échecs artisanaux en bois d\'olivier massif avec pièces sculptées.',
+    'products.p9.title': 'Plateaux carrelés',
+    'products.p9.desc': 'Plateaux de service avec carrelage bleu traditionnel, parfaits pour la cuisine marocaine.',
+    'products.p10.title': 'Plateaux avec poignées',
+    'products.p10.desc': 'Plateaux de service ergonomiques avec poignées intégrées pour un transport facile.',
+    'products.p11.title': 'Cuillères à sauce',
+    'products.p11.desc': 'Cuillères sculptées pour servir les sauces et les condiments avec élégance.',
+    'products.p12.title': 'Cuillères à miel',
+    'products.p12.desc': 'Cuillères spécialisées pour le miel et les sirops, avec design ergonomique.',
+    'products.badge13': 'Bols',
+    'products.badge14': 'Serveurs',
+    'products.badge15': 'Plateau',
+    'products.badge16': 'Planche',
+    'products.badge17': 'Accessoire',
+    'products.badge18': 'Accessoire',
+    'products.p13.title': 'Bols emboîtables',
+    'products.p13.desc': 'Ensembles de bols imbriqués en tailles progressives, parfaits pour le rangement et la présentation.',
+    'products.p14.title': 'Serveurs à salade',
+    'products.p14.desc': 'Paires de serveurs sculptés pour servir les salades et les plats avec élégance et facilité.',
+    'products.p15.title': 'Plateaux compartimentés',
+    'products.p15.desc': 'Plateaux divisés pour les apéritifs et les entrées, avec compartiments séparés pour différents mets.',
+    'products.p16.title': 'Planches bord vivant',
+    'products.p16.desc': 'Planches avec bords naturels préservés, mettant en valeur la beauté brute du bois d\'olivier.',
+    'products.p17.title': 'Supports de présentation',
+    'products.p17.desc': 'Supports sculptés pour présenter les fromages, charcuteries et autres délices culinaires.',
+    'products.p18.title': 'Bols à trempage',
+    'products.p18.desc': 'Petits bols profonds pour les sauces, les trempettes et les condiments, avec design ergonomique.',
+    'products.price': 'À partir de',
+    
+    'process.tag': 'Notre processus',
+    'process.title': 'Du Bois Brut à l\'Œuvre d\'Art',
+    'process.desc': 'Découvrez le voyage de transformation du bois d\'olivier brut en pièces artisanales magnifiques.',
+    'process.p1.title': 'Sélection du bois',
+    'process.p1.desc': 'Nous sélectionnons les plus beaux bois d\'olivier, en cherchant les veinures et les motifs naturels les plus remarquables.',
+    'process.p2.title': 'Découpe et façonnage',
+    'process.p2.desc': 'Le bois est découpé et façonné selon les formes désirées, en utilisant des techniques traditionnelles et modernes.',
+    'process.p3.title': 'Ponçage et finition',
+    'process.p3.desc': 'Chaque pièce est poncée à la main pour obtenir une surface lisse et agréable au toucher.',
+    'process.p4.title': 'Traitement naturel',
+    'process.p4.desc': 'Les pièces sont traitées avec des huiles naturelles pour protéger le bois et mettre en valeur sa beauté.',
+    'products.cta': 'Voir plus',
+    'products.quantity': 'Quantité:',
+    'products.order': 'Commander',
+    
+    'admin.login.title': 'Connexion Admin',
+    'admin.login.password': 'Mot de passe:',
+    'admin.login.submit': 'Se connecter',
+    'admin.dashboard.title': 'Tableau de bord Admin',
+    'admin.tabs.orders': 'Commandes',
+    'admin.tabs.products': 'Produits',
+    'admin.tabs.stats': 'Statistiques',
+    'admin.orders.title': 'Commandes reçues',
+    'admin.orders.empty': 'Aucune commande pour le moment',
+    'admin.stats.title': 'Statistiques',
+    'admin.stats.total_orders': 'Total des commandes:',
+    'admin.stats.total_items': 'Total des articles:',
+    'admin.logout': 'Déconnexion',
+    
+    'order.title': 'Confirmer la commande',
+    'order.name': 'Nom:',
+    'order.email': 'Email:',
+    'order.phone': 'Téléphone:',
+    'order.notes': 'Notes spéciales:',
+    'order.submit': 'Soumettre la commande',
+    'order.success': 'Votre commande a été soumise avec succès! Nous vous appellerons bientôt pour confirmer et discuter du prix.',
+    
+    'about.tag': 'À propos',
+    'about.title': 'Façonné avec passion',
+    'about.p1': 'Artis\'Olive Wood est un atelier artisanal basé à Sfax, Tunisie. Nous travaillons exclusivement le bois d\'olivier — un matériau noble, dense et durable, aux veinures magnifiques.',
+    'about.p2': 'Chaque pièce est façonnée à la main, du choix du bois à la finition finale, avec une attention méticuleuse portée aux détails pour des objets authentiques et intemporels.',
+    'about.f1': '✦ Bois d\'olivier 100% naturel',
+    'about.f2': '✦ Artisanat fait main à Sfax',
+    'about.f3': '✦ Commandes personnalisées sur demande',
+    
+    'contact.tag': 'Contact',
+    'contact.title': 'Commandez votre pièce',
+    'contact.desc': 'Une idée, une mesure, un projet ? Contactez-nous pour une création sur mesure.',
+    'contact.phone': 'Téléphone',
+    'contact.email': 'Email',
+    'contact.location': 'Localisation',
+    'contact.infoTitle': 'Coordonnées',
+    'contact.formTitle': 'Envoyez-nous un message',
+    
+    'form.name': 'Nom',
+    'form.email': 'Email',
+    'form.subject': 'Sujet',
+    'form.message': 'Message',
+    'form.submit': 'Envoyer le message',
+    
+    'footer.tagline': 'Crafted With Passion',
+    'footer.navTitle': 'Navigation',
+    'footer.contactTitle': 'Contact',
+    'footer.copy': '© 2026 Artis\'Olive Wood. Tous droits réservés.',
+  },
+  
+  en: {
+    'nav.services': 'Craftsmanship',
+    'nav.creations': 'Creations',
+    'nav.products': 'Products',
+    'nav.process': 'Process',
+    'nav.about': 'About',
+    'nav.contact': 'Contact',
+    
+    'hero.eyebrow': 'Olive Wood Craftsmanship',
+    'hero.title1': 'Olive Wood',
+    'hero.title2': 'Crafted With Passion',
+    'hero.desc': 'We handcraft unique pieces in olive wood: utensils, boards, decorative objects and custom creations.',
+    'hero.cta1': 'Discover our creations',
+    'hero.cta2': 'Contact us',
+    'hero.stat1': 'Olive wood',
+    'hero.stat2': 'Handmade',
+    'hero.stat3': 'Tunisia',
+    
+    'services.tag': 'Our Expertise',
+    'services.title': 'Wood Craftsmanship',
+    'services.desc': 'Each piece is carved, sanded and finished by hand with respect for a centuries-old tradition.',
+    'services.s1.title': 'Custom Creations',
+    'services.s1.desc': 'Personalized pieces according to your wishes: dimensions, shapes and finishes adapted to each project.',
+    'services.s2.title': 'Utensils & Kitchen',
+    'services.s2.desc': 'Cutting boards, bowls, spoons and kitchen accessories in natural olive wood.',
+    'services.s3.title': 'Decoration & Furniture',
+    'services.s3.desc': 'Decorative objects, frames, shelves and small furniture carved from the finest olive wood.',
+    
+    'creations.tag': 'Our Creations',
+    'creations.title': 'Handcrafted Pieces',
+    'creations.desc': 'Olive wood offers unique grain patterns — each piece is truly one of a kind.',
+    'creations.p1.title': 'Cutting Boards',
+    'creations.p1.desc': 'Robust and elegant, perfect for everyday cooking.',
+    'creations.p2.title': 'Bowls & Salad Bowls',
+    'creations.p2.desc': 'Hand-turned with warm and natural grain patterns.',
+    'creations.p3.title': 'Spoons & Utensils',
+    'creations.p3.desc': 'Soft to the touch, ideal for cooking and dining.',
+    'creations.p4.title': 'Decorative Objects',
+    'creations.p4.desc': 'Sculptures, frames and art pieces to beautify your home.',
+    
+    'products.tag': 'Our Products',
+    'products.title': 'Olive Wood Products',
+    'products.desc': 'Discover our complete collection of handcrafted products, each unique and made with passion.',
+    'products.badge1': 'Board',
+    'products.badge2': 'Bowl',
+    'products.badge3': 'Utensil',
+    'products.badge4': 'Decoration',
+    'products.badge5': 'Set',
+    'products.badge6': 'Custom',
+    'products.badge7': 'Pizza',
+    'products.badge8': 'Game',
+    'products.badge9': 'Tray',
+    'products.badge10': 'Tray',
+    'products.badge11': 'Accessory',
+    'products.badge12': 'Accessory',
+    'products.p1.title': 'Cutting Boards',
+    'products.p1.desc': 'Robust and elegant cutting boards in solid olive wood, perfect for everyday cooking.',
+    'products.p2.title': 'Bowls & Salad Bowls',
+    'products.p2.desc': 'Hand-turned bowls with warm and natural grain patterns, ideal for the table.',
+    'products.p3.title': 'Spoons & Utensils',
+    'products.p3.desc': 'Soft spoons, hand-turned for cooking and dining.',
+    'products.p4.title': 'Decorative Objects',
+    'products.p4.desc': 'Sculptures and frames in olive wood to beautify your home with elegance.',
+    'products.p5.title': 'Sets & Gift Boxes',
+    'products.p5.desc': 'Gift boxes containing several assorted pieces, perfect for giving.',
+    'products.p6.title': 'Custom Creations',
+    'products.p6.desc': 'Personalized pieces according to your wishes, dimensions and finishes adapted to your project.',
+    'products.p7.title': 'Pizza Boards',
+    'products.p7.desc': 'Elegant round boards to present and serve your pizzas in style.',
+    'products.p8.title': 'Chess Sets',
+    'products.p8.desc': 'Artisanal chess boards in solid olive wood with hand-carved pieces.',
+    'products.p9.title': 'Tiled Trays',
+    'products.p9.desc': 'Service trays with traditional blue tile work, perfect for Moroccan cuisine.',
+    'products.p10.title': 'Trays with Handles',
+    'products.p10.desc': 'Ergonomic service trays with integrated handles for easy transport.',
+    'products.p11.title': 'Sauce Spoons',
+    'products.p11.desc': 'Carved spoons for serving sauces and condiments with elegance.',
+    'products.p12.title': 'Honey Spoons',
+    'products.p12.desc': 'Specialized spoons for honey and syrups, with ergonomic design.',
+    'products.badge13': 'Bowls',
+    'products.badge14': 'Servers',
+    'products.badge15': 'Tray',
+    'products.badge16': 'Board',
+    'products.badge17': 'Accessory',
+    'products.badge18': 'Accessory',
+    'products.p13.title': 'Nesting Bowls',
+    'products.p13.desc': 'Sets of nested bowls in progressive sizes, perfect for storage and presentation.',
+    'products.p14.title': 'Salad Servers',
+    'products.p14.desc': 'Pairs of carved servers for serving salads and dishes with elegance and ease.',
+    'products.p15.title': 'Compartmented Trays',
+    'products.p15.desc': 'Divided trays for appetizers and starters, with separate compartments for different foods.',
+    'products.p16.title': 'Live Edge Boards',
+    'products.p16.desc': 'Boards with preserved natural edges, showcasing the raw beauty of olive wood.',
+    'products.p17.title': 'Presentation Stands',
+    'products.p17.desc': 'Carved stands for presenting cheeses, charcuterie and other culinary delights.',
+    'products.p18.title': 'Dipping Bowls',
+    'products.p18.desc': 'Small deep bowls for sauces, dips and condiments, with ergonomic design.',
+    'products.price': 'From',
+    
+    'process.tag': 'Our Process',
+    'process.title': 'From Raw Wood to Masterpiece',
+    'process.desc': 'Discover the transformation journey of raw olive wood into magnificent handcrafted pieces.',
+    'process.p1.title': 'Wood Selection',
+    'process.p1.desc': 'We select the finest olive wood, seeking the most remarkable grain patterns and natural motifs.',
+    'process.p2.title': 'Cutting & Shaping',
+    'process.p2.desc': 'The wood is cut and shaped according to desired forms, using both traditional and modern techniques.',
+    'process.p3.title': 'Sanding & Finishing',
+    'process.p3.desc': 'Each piece is hand-sanded to achieve a smooth and pleasant surface to the touch.',
+    'process.p4.title': 'Natural Treatment',
+    'process.p4.desc': 'Pieces are treated with natural oils to protect the wood and enhance its natural beauty.',
+    'products.cta': 'Learn more',
+    'products.quantity': 'Quantity:',
+    'products.order': 'Order',
+    
+    'admin.login.title': 'Admin Login',
+    'admin.login.password': 'Password:',
+    'admin.login.submit': 'Login',
+    'admin.dashboard.title': 'Admin Dashboard',
+    'admin.tabs.orders': 'Orders',
+    'admin.tabs.products': 'Products',
+    'admin.tabs.stats': 'Statistics',
+    'admin.orders.title': 'Received Orders',
+    'admin.orders.empty': 'No orders yet',
+    'admin.stats.title': 'Statistics',
+    'admin.stats.total_orders': 'Total Orders:',
+    'admin.stats.total_items': 'Total Items:',
+    'admin.logout': 'Logout',
+    
+    'order.title': 'Confirm Order',
+    'order.name': 'Name:',
+    'order.email': 'Email:',
+    'order.phone': 'Phone:',
+    'order.notes': 'Special Notes:',
+    'order.submit': 'Submit Order',
+    'order.success': 'Your order has been submitted successfully! We will call you soon to confirm and discuss the price.',
+    
+    'about.tag': 'About',
+    'about.title': 'Crafted with Passion',
+    'about.p1': 'Artis\'Olive Wood is an artisanal workshop based in Sfax, Tunisia. We work exclusively with olive wood — a noble, dense and durable material with magnificent grain patterns.',
+    'about.p2': 'Each piece is handcrafted, from the choice of wood to the final finish, with meticulous attention to detail for authentic and timeless objects.',
+    'about.f1': '✦ 100% natural olive wood',
+    'about.f2': '✦ Handmade craftsmanship in Sfax',
+    'about.f3': '✦ Custom orders on request',
+    
+    'contact.tag': 'Contact',
+    'contact.title': 'Order Your Piece',
+    'contact.desc': 'An idea, a measurement, a project? Contact us for a custom creation.',
+    'contact.phone': 'Phone',
+    'contact.email': 'Email',
+    'contact.location': 'Location',
+    'contact.infoTitle': 'Contact details',
+    'contact.formTitle': 'Send us a message',
+    
+    'form.name': 'Name',
+    'form.email': 'Email',
+    'form.subject': 'Subject',
+    'form.message': 'Message',
+    'form.submit': 'Send Message',
+    
+    'footer.tagline': 'Crafted With Passion',
+    'footer.navTitle': 'Navigation',
+    'footer.contactTitle': 'Contact',
+    'footer.copy': '© 2026 Artis\'Olive Wood. All rights reserved.',
+  },
+  
+  de: {
+    'nav.services': 'Handwerk',
+    'nav.creations': 'Kreationen',
+    'nav.products': 'Produkte',
+    'nav.process': 'Prozess',
+    'nav.about': 'Über uns',
+    'nav.contact': 'Kontakt',
+    
+    'hero.eyebrow': 'Olivenholz-Handwerk',
+    'hero.title1': 'Olivenholz',
+    'hero.title2': 'Crafted With Passion',
+    'hero.desc': 'Wir fertigen einzigartige Stücke aus Olivenholz: Utensilien, Bretter, Dekorationsobjekte und maßgefertigte Kreationen.',
+    'hero.cta1': 'Unsere Kreationen entdecken',
+    'hero.cta2': 'Kontaktieren Sie uns',
+    'hero.stat1': 'Olivenholz',
+    'hero.stat2': 'Handgefertigt',
+    'hero.stat3': 'Tunesien',
+    
+    'services.tag': 'Unsere Expertise',
+    'services.title': 'Holzhandwerk',
+    'services.desc': 'Jedes Stück wird von Hand geschnitzt, geschliffen und fertiggestellt mit Respekt vor einer jahrhundertealten Tradition.',
+    'services.s1.title': 'Maßgefertigte Kreationen',
+    'services.s1.desc': 'Personalisierte Stücke nach Ihren Wünschen: Abmessungen, Formen und Oberflächen für jedes Projekt.',
+    'services.s2.title': 'Utensilien & Küche',
+    'services.s2.desc': 'Schneidbretter, Schüsseln, Löffel und Küchengeräte aus natürlichem Olivenholz.',
+    'services.s3.title': 'Dekoration & Möbel',
+    'services.s3.desc': 'Dekorationsobjekte, Rahmen, Regale und kleine Möbel aus edelstem Olivenholz.',
+    
+    'creations.tag': 'Unsere Kreationen',
+    'creations.title': 'Handgefertigte Stücke',
+    'creations.desc': 'Olivenholz bietet einzigartige Maserungen — jedes Stück ist wirklich einzigartig.',
+    'creations.p1.title': 'Schneidbretter',
+    'creations.p1.desc': 'Robust und elegant, perfekt für den täglichen Gebrauch.',
+    'creations.p2.title': 'Schüsseln & Salatschüsseln',
+    'creations.p2.desc': 'Von Hand gedreht mit warmen und natürlichen Maserungen.',
+    'creations.p3.title': 'Löffel & Utensilien',
+    'creations.p3.desc': 'Angenehm in der Hand, ideal für Küche und Tisch.',
+    'creations.p4.title': 'Dekorationsobjekte',
+    'creations.p4.desc': 'Skulpturen, Rahmen und Kunstwerke zur Verschönerung Ihres Hauses.',
+    
+    'products.tag': 'Unsere Produkte',
+    'products.title': 'Olivenholz-Produkte',
+    'products.desc': 'Entdecken Sie unsere komplette Kollektion handgefertigter Produkte, jedes einzigartig und mit Leidenschaft gefertigt.',
+    'products.badge1': 'Brett',
+    'products.badge2': 'Schüssel',
+    'products.badge3': 'Utensil',
+    'products.badge4': 'Dekoration',
+    'products.badge5': 'Set',
+    'products.badge6': 'Maßgefertigt',
+    'products.badge7': 'Pizza',
+    'products.badge8': 'Spiel',
+    'products.badge9': 'Tablett',
+    'products.badge10': 'Tablett',
+    'products.badge11': 'Zubehör',
+    'products.badge12': 'Zubehör',
+    'products.p1.title': 'Schneidbretter',
+    'products.p1.desc': 'Robuste und elegante Schneidbretter aus massivem Olivenholz, perfekt für den täglichen Gebrauch.',
+    'products.p2.title': 'Schüsseln & Salatschüsseln',
+    'products.p2.desc': 'Von Hand gedrehte Schüsseln mit warmen und natürlichen Maserungen, ideal für den Tisch.',
+    'products.p3.title': 'Löffel & Utensilien',
+    'products.p3.desc': 'Angenehme Löffel, von Hand gedreht für Küche und Tisch.',
+    'products.p4.title': 'Dekorationsobjekte',
+    'products.p4.desc': 'Skulpturen und Rahmen aus Olivenholz zur eleganten Verschönerung Ihres Hauses.',
+    'products.p5.title': 'Sets & Geschenkboxen',
+    'products.p5.desc': 'Geschenkboxen mit mehreren sortierten Stücken, perfekt zum Verschenken.',
+    'products.p6.title': 'Maßgefertigte Kreationen',
+    'products.p6.desc': 'Personalisierte Stücke nach Ihren Wünschen, Abmessungen und Oberflächen für Ihr Projekt.',
+    'products.p7.title': 'Pizzabretter',
+    'products.p7.desc': 'Elegante runde Bretter zur Präsentation und zum Servieren Ihrer Pizzas mit Stil.',
+    'products.p8.title': 'Schachspiele',
+    'products.p8.desc': 'Handwerkliche Schachbretter aus massivem Olivenholz mit handgeschnitzten Figuren.',
+    'products.p9.title': 'Geflieste Tabletts',
+    'products.p9.desc': 'Serviertabletts mit traditioneller blauer Fliesenarbeit, perfekt für marokkanische Küche.',
+    'products.p10.title': 'Tabletts mit Griffen',
+    'products.p10.desc': 'Ergonomische Serviertabletts mit integrierten Griffen für einfachen Transport.',
+    'products.p11.title': 'Saucenlöffel',
+    'products.p11.desc': 'Geschnitzte Löffel zum Servieren von Saucen und Gewürzen mit Eleganz.',
+    'products.p12.title': 'Honigelöffel',
+    'products.p12.desc': 'Spezialisierte Löffel für Honig und Sirupe mit ergonomischem Design.',
+    'products.badge13': 'Schüsseln',
+    'products.badge14': 'Server',
+    'products.badge15': 'Tablett',
+    'products.badge16': 'Brett',
+    'products.badge17': 'Zubehör',
+    'products.badge18': 'Zubehör',
+    'products.p13.title': 'Verschachtelte Schüsseln',
+    'products.p13.desc': 'Sätze verschachtelter Schüsseln in progressiven Größen, perfekt für Lagerung und Präsentation.',
+    'products.p14.title': 'Salatserver',
+    'products.p14.desc': 'Paare geschnitzter Server zum Servieren von Salaten und Speisen mit Eleganz und Leichtigkeit.',
+    'products.p15.title': 'Geteilte Tabletts',
+    'products.p15.desc': 'Geteilte Tabletts für Vorspeisen und Vorspeisen mit separaten Fächern für verschiedene Lebensmittel.',
+    'products.p16.title': 'Bretter mit lebender Kante',
+    'products.p16.desc': 'Bretter mit erhaltenen natürlichen Kanten, die die rohe Schönheit von Olivenholz zeigen.',
+    'products.p17.title': 'Präsentationsständer',
+    'products.p17.desc': 'Geschnitzte Ständer zur Präsentation von Käse, Wurst und anderen kulinarischen Köstlichkeiten.',
+    'products.p18.title': 'Dipschüsseln',
+    'products.p18.desc': 'Kleine tiefe Schüsseln für Saucen, Dips und Gewürze mit ergonomischem Design.',
+    'products.price': 'Ab',
+    
+    'process.tag': 'Unser Prozess',
+    'process.title': 'Vom Rohholz zum Meisterwerk',
+    'process.desc': 'Entdecken Sie die Transformationsreise von Rohholz zu wunderschönen handgefertigten Stücken.',
+    'process.p1.title': 'Holzauswahl',
+    'process.p1.desc': 'Wir wählen das feinste Olivenholz aus und suchen nach den bemerkenswertesten Maserungen und natürlichen Mustern.',
+    'process.p2.title': 'Schneiden und Formen',
+    'process.p2.desc': 'Das Holz wird nach gewünschten Formen geschnitten und geformt, wobei sowohl traditionelle als auch moderne Techniken verwendet werden.',
+    'process.p3.title': 'Schleifen und Fertigstellung',
+    'process.p3.desc': 'Jedes Stück wird von Hand geschliffen, um eine glatte und angenehme Oberfläche zu erhalten.',
+    'process.p4.title': 'Natürliche Behandlung',
+    'process.p4.desc': 'Stücke werden mit natürlichen Ölen behandelt, um das Holz zu schützen und seine natürliche Schönheit hervorzuheben.',
+    'products.cta': 'Mehr erfahren',
+    'products.quantity': 'Menge:',
+    'products.order': 'Bestellen',
+    
+    'admin.login.title': 'Admin-Anmeldung',
+    'admin.login.password': 'Passwort:',
+    'admin.login.submit': 'Anmelden',
+    'admin.dashboard.title': 'Admin-Dashboard',
+    'admin.tabs.orders': 'Bestellungen',
+    'admin.tabs.products': 'Produkte',
+    'admin.tabs.stats': 'Statistiken',
+    'admin.orders.title': 'Eingegangene Bestellungen',
+    'admin.orders.empty': 'Noch keine Bestellungen',
+    'admin.stats.title': 'Statistiken',
+    'admin.stats.total_orders': 'Gesamtbestellungen:',
+    'admin.stats.total_items': 'Gesamtartikel:',
+    'admin.logout': 'Abmelden',
+    
+    'order.title': 'Bestellung bestätigen',
+    'order.name': 'Name:',
+    'order.email': 'E-Mail:',
+    'order.phone': 'Telefon:',
+    'order.notes': 'Spezielle Notizen:',
+    'order.submit': 'Bestellung einreichen',
+    'order.success': 'Ihre Bestellung wurde erfolgreich eingereicht! Wir rufen Sie bald an, um den Preis zu bestätigen und zu besprechen.',
+    
+    'about.tag': 'Über uns',
+    'about.title': 'Mit Leidenschaft gefertigt',
+    'about.p1': 'Artis\'Olive Wood ist eine Kunsthandwerkswerkstatt in Sfax, Tunesien. Wir arbeiten ausschließlich mit Olivenholz — einem edlen, dichten und langlebigen Material mit wunderschönen Maserungen.',
+    'about.p2': 'Jedes Stück wird von Hand gefertigt, von der Holzauswahl bis zur endgültigen Oberflächenbehandlung, mit sorgfältiger Aufmerksamkeit für Details für authentische und zeitlose Objekte.',
+    'about.f1': '✦ 100% natürliches Olivenholz',
+    'about.f2': '✦ Handgefertigtes Kunsthandwerk in Sfax',
+    'about.f3': '✦ Maßgefertigte Bestellungen auf Anfrage',
+    
+    'contact.tag': 'Kontakt',
+    'contact.title': 'Bestellen Sie Ihr Stück',
+    'contact.desc': 'Eine Idee, ein Maß, ein Projekt? Kontaktieren Sie uns für eine maßgefertigte Kreation.',
+    'contact.phone': 'Telefon',
+    'contact.email': 'E-Mail',
+    'contact.location': 'Standort',
+    'contact.infoTitle': 'Kontaktdaten',
+    'contact.formTitle': 'Senden Sie uns eine Nachricht',
+    
+    'form.name': 'Name',
+    'form.email': 'E-Mail',
+    'form.subject': 'Betreff',
+    'form.message': 'Nachricht',
+    'form.submit': 'Nachricht senden',
+    
+    'footer.tagline': 'Crafted With Passion',
+    'footer.navTitle': 'Navigation',
+    'footer.contactTitle': 'Kontakt',
+    'footer.copy': '© 2026 Artis\'Olive Wood. Alle Rechte vorbehalten.',
+  }
+};
+
+let currentLanguage = 'fr';
+
+function setLanguage(lang) {
+  currentLanguage = lang;
+  localStorage.setItem('language', lang);
+  updateTranslations();
+  updateLangButtons();
+}
+
+function updateTranslations() {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    const translation = translations[currentLanguage][key];
+    if (translation) {
+      element.textContent = translation;
+    }
+  });
+}
+
+function updateLangButtons() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
+    if (btn.getAttribute('data-lang') === currentLanguage) {
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+    }
+  });
+}
+
+/* ========================================
+   NAVIGATION & MENU
+   ======================================== */
+
+function initNavigation() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    });
+  }
+  
+  // Close menu when a link is clicked
+  if (navLinks) {
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  
+  // Language switcher
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.getAttribute('data-lang'));
+    });
+  });
+}
+
+/* ========================================
+   HEADER SCROLL EFFECT
+   ======================================== */
+
+function initHeaderScroll() {
+  const header = document.getElementById('header');
+  let lastScrollTop = 0;
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 50) {
+      header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+    
+    lastScrollTop = scrollTop;
+  });
+}
+
+/* ========================================
+   FORM HANDLING
+   ======================================== */
+
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Here you would typically send the data to a server
+      console.log('Form submitted:', data);
+      
+      // Show success message
+      alert('Merci pour votre message! Nous vous répondrons bientôt.' + (currentLanguage === 'en' ? '\nThank you for your message! We will reply soon.' : currentLanguage === 'de' ? '\nDanke für Ihre Nachricht! Wir werden bald antworten.' : ''));
+      form.reset();
+    });
+  }
+}
+
+/* ========================================
+   SMOOTH SCROLL BEHAVIOR
+   ======================================== */
+
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && document.querySelector(href)) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
+/* ========================================
+   INTERSECTION OBSERVER FOR ANIMATIONS
+   ======================================== */
+
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.service-card, .creation-card, .product-card, .about-logo').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+}
+
+/* ========================================
+   ADMIN & ORDER MANAGEMENT
+   ======================================== */
+
+let orders = JSON.parse(localStorage.getItem('orders')) || [];
+const ADMIN_PASSWORD = 'ghsn123';
+let isAdminLoggedIn = false;
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('show');
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('show');
+  }
+}
+
+function initAdminButton() {
+  const adminBtn = document.getElementById('admin-btn');
+  const adminLoginModal = document.getElementById('admin-login-modal');
+  const closeLoginBtn = document.getElementById('close-login-modal');
+  const adminLoginBtn = document.getElementById('admin-login-btn');
+  const adminPasswordInput = document.getElementById('admin-password');
+  const loginError = document.getElementById('login-error');
+  
+  if (adminBtn) {
+    adminBtn.addEventListener('click', () => {
+      if (isAdminLoggedIn) {
+        openModal('admin-dashboard-modal');
+        displayOrders();
+        displayProducts();
+      } else {
+        openModal('admin-login-modal');
+      }
+    });
+  }
+  
+  if (closeLoginBtn) {
+    closeLoginBtn.addEventListener('click', () => closeModal('admin-login-modal'));
+  }
+  
+  if (adminLoginBtn) {
+    adminLoginBtn.addEventListener('click', () => {
+      const password = adminPasswordInput.value;
+      if (password === ADMIN_PASSWORD) {
+        isAdminLoggedIn = true;
+        loginError.textContent = '';
+        closeModal('admin-login-modal');
+        openModal('admin-dashboard-modal');
+        displayOrders();
+        displayProducts();
+        adminPasswordInput.value = '';
+      } else {
+        loginError.textContent = 'Mot de passe incorrect';
+      }
+    });
+  }
+  
+  if (adminPasswordInput) {
+    adminPasswordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        adminLoginBtn.click();
+      }
+    });
+  }
+  
+  const closeAdminBtn = document.getElementById('close-admin-modal');
+  if (closeAdminBtn) {
+    closeAdminBtn.addEventListener('click', () => closeModal('admin-dashboard-modal'));
+  }
+  
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      isAdminLoggedIn = false;
+      closeModal('admin-dashboard-modal');
+    });
+  }
+  
+  const adminTabs = document.querySelectorAll('.admin-tab-btn');
+  adminTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabName = btn.getAttribute('data-tab');
+      switchAdminTab(tabName);
+    });
+  });
+  
+  initProductsManagement();
+}
+
+function switchAdminTab(tabName) {
+  const tabs = document.querySelectorAll('.admin-tab-content');
+  const btns = document.querySelectorAll('.admin-tab-btn');
+  
+  tabs.forEach(tab => tab.classList.remove('active'));
+  btns.forEach(btn => btn.classList.remove('active'));
+  
+  const activeTab = document.getElementById(tabName + '-tab');
+  if (activeTab) {
+    activeTab.classList.add('active');
+  }
+  
+  const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+  }
+  
+  if (tabName === 'stats') {
+    updateStats();
+  } else if (tabName === 'products') {
+    displayProducts();
+  }
+}
+
+function displayOrders() {
+  const ordersList = document.getElementById('orders-list');
+  if (!ordersList) return;
+  
+  if (orders.length === 0) {
+    ordersList.innerHTML = '<p>' + translations[currentLanguage]['admin.orders.empty'] + '</p>';
+    return;
+  }
+  
+  ordersList.innerHTML = '';
+  orders.forEach((order, index) => {
+    const orderItem = document.createElement('div');
+    orderItem.className = 'order-item';
+    orderItem.innerHTML = `
+      <h4>Commande #${index + 1} - ${order.customerName}</h4>
+      <p><strong>Email:</strong> ${order.customerEmail}</p>
+      <p><strong>Téléphone:</strong> ${order.customerPhone}</p>
+      <p><strong>Produits:</strong></p>
+      <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+        ${order.items.map(item => `<li>${item.name} x ${item.quantity}</li>`).join('')}
+      </ul>
+      ${order.customerNotes ? `<p><strong>Notes:</strong> ${order.customerNotes}</p>` : ''}
+      <div class="order-date">Date: ${new Date(order.date).toLocaleString('fr-FR')}</div>
+    `;
+    ordersList.appendChild(orderItem);
+  });
+}
+
+function updateStats() {
+  const totalOrders = document.getElementById('total-orders');
+  const totalItems = document.getElementById('total-items');
+  
+  if (totalOrders) {
+    totalOrders.textContent = orders.length;
+  }
+  
+  if (totalItems) {
+    let itemCount = 0;
+    orders.forEach(order => {
+      order.items.forEach(item => {
+        itemCount += item.quantity;
+      });
+    });
+    totalItems.textContent = itemCount;
+  }
+}
+
+/* Products Management */
+let products = [];
+let currentEditingProductId = null;
+
+// Load products from localStorage with error handling
+try {
+  const storedProducts = localStorage.getItem('products');
+  if (storedProducts) {
+    products = JSON.parse(storedProducts);
+  }
+} catch(e) {
+  console.error('Error loading products:', e);
+  products = [];
+}
+
+function initProductsManagement() {
+  const addProductBtn = document.getElementById('add-product-btn');
+  const closeProductModal = document.getElementById('close-product-modal');
+  const saveProductBtn = document.getElementById('save-product-btn');
+  const deleteProductBtn = document.getElementById('delete-product-btn');
+  const productImageUpload = document.getElementById('product-image-upload');
+  
+  if (addProductBtn) {
+    addProductBtn.addEventListener('click', () => {
+      currentEditingProductId = null;
+      document.getElementById('product-name').value = '';
+      document.getElementById('product-desc').value = '';
+      document.getElementById('product-image').value = '';
+      document.getElementById('product-image-upload').value = '';
+      document.getElementById('product-image-preview').innerHTML = '';
+      deleteProductBtn.style.display = 'none';
+      openModal('product-edit-modal');
+    });
+  }
+  
+  if (closeProductModal) {
+    closeProductModal.addEventListener('click', () => closeModal('product-edit-modal'));
+  }
+  
+  if (saveProductBtn) {
+    saveProductBtn.addEventListener('click', saveProduct);
+  }
+  
+  if (deleteProductBtn) {
+    deleteProductBtn.addEventListener('click', deleteProduct);
+  }
+  
+  if (productImageUpload) {
+    productImageUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const preview = document.getElementById('product-image-preview');
+          preview.innerHTML = `<img src="${event.target.result}" style="max-width: 200px; border-radius: 8px;">`;
+          document.getElementById('product-image').value = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+  
+  displayProducts();
+}
+
+function displayProducts() {
+  const productsList = document.getElementById('products-list');
+  if (!productsList) return;
+  
+  if (!products || products.length === 0) {
+    productsList.innerHTML = '<p style="text-align: center; color: #999; padding: 2rem;">Aucun produit pour le moment</p>';
+    return;
+  }
+  
+  try {
+    productsList.innerHTML = '';
+    products.forEach((product, index) => {
+      if (!product || !product.name || !product.image) {
+        console.warn('Invalid product at index', index, product);
+        return;
+      }
+      
+      const productItem = document.createElement('div');
+      productItem.className = 'product-item';
+      productItem.style.cssText = 'background: #f5f5f5; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center;';
+      productItem.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px;">
+        <div style="flex: 1;">
+          <h4>${product.name}</h4>
+          <p style="color: #666; font-size: 0.9rem; margin: 0.25rem 0;">${(product.desc || '').substring(0, 80)}...</p>
+        </div>
+        <button class="btn btn-primary btn-small" onclick="editProduct(${index})">Éditer</button>
+      `;
+      productsList.appendChild(productItem);
+    });
+  } catch(e) {
+    console.error('Error displaying products:', e);
+    productsList.innerHTML = '<p style="color: red;">Erreur lors du chargement des produits</p>';
+  }
+}
+
+function editProduct(index) {
+  currentEditingProductId = index;
+  const product = products[index];
+  document.getElementById('product-name').value = product.name;
+  document.getElementById('product-desc').value = product.desc;
+  document.getElementById('product-image').value = product.image;
+  document.getElementById('delete-product-btn').style.display = 'block';
+  const preview = document.getElementById('product-image-preview');
+  preview.innerHTML = `<img src="${product.image}" style="max-width: 200px; border-radius: 8px;">`;
+  openModal('product-edit-modal');
+}
+
+function saveProduct() {
+  const name = document.getElementById('product-name').value.trim();
+  const desc = document.getElementById('product-desc').value.trim();
+  const image = document.getElementById('product-image').value.trim();
+  
+  if (!name || !desc || !image) {
+    alert('Veuillez remplir tous les champs');
+    return;
+  }
+  
+  try {
+    if (currentEditingProductId !== null) {
+      products[currentEditingProductId] = { name, desc, image };
+    } else {
+      products.push({ name, desc, image });
+    }
+    
+    localStorage.setItem('products', JSON.stringify(products));
+    console.log('Products saved:', products);
+    displayProducts();
+    closeModal('product-edit-modal');
+  } catch(e) {
+    console.error('Error saving product:', e);
+    alert('Erreur lors de l\'enregistrement du produit');
+  }
+}
+
+function deleteProduct() {
+  if (currentEditingProductId !== null && confirm('Êtes-vous sûr de vouloir supprimer ce produit?')) {
+    products.splice(currentEditingProductId, 1);
+    localStorage.setItem('products', JSON.stringify(products));
+    displayProducts();
+    closeModal('product-edit-modal');
+  }
+}
+
+function initOrderButtons() {
+  const orderBtns = document.querySelectorAll('.order-btn');
+  orderBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const productCard = btn.closest('.product-card');
+      if (productCard) {
+        const productTitle = productCard.querySelector('h3').textContent;
+        const qtyInput = productCard.querySelector('.qty-input');
+        const quantity = parseInt(qtyInput.value) || 1;
+        
+        showOrderModal(productTitle, quantity);
+      }
+    });
+  });
+}
+
+function showOrderModal(productName, quantity) {
+  const orderSummary = document.getElementById('order-summary');
+  if (orderSummary) {
+    orderSummary.innerHTML = `
+      <div class="order-summary-item">
+        <span>Produit:</span>
+        <strong>${productName}</strong>
+      </div>
+      <div class="order-summary-item">
+        <span>Quantité:</span>
+        <strong>${quantity}</strong>
+      </div>
+    `;
+  }
+  
+  const submitBtn = document.getElementById('submit-order-btn');
+  if (submitBtn) {
+    submitBtn.onclick = () => submitOrder(productName, quantity);
+  }
+  
+  openModal('order-modal');
+}
+
+function submitOrder(productName, quantity) {
+  const customerName = document.getElementById('customer-name').value;
+  const customerEmail = document.getElementById('customer-email').value;
+  const customerPhone = document.getElementById('customer-phone').value;
+  const customerNotes = document.getElementById('customer-notes').value;
+  
+  if (!customerName || !customerEmail || !customerPhone) {
+    alert('Veuillez remplir tous les champs obligatoires');
+    return;
+  }
+  
+  const order = {
+    date: new Date().toISOString(),
+    customerName,
+    customerEmail,
+    customerPhone,
+    customerNotes,
+    items: [
+      {
+        name: productName,
+        quantity: quantity
+      }
+    ]
+  };
+  
+  orders.push(order);
+  localStorage.setItem('orders', JSON.stringify(orders));
+  
+  const successMsg = document.getElementById('order-success');
+  if (successMsg) {
+    successMsg.textContent = translations[currentLanguage]['order.success'];
+  }
+  
+  setTimeout(() => {
+    document.getElementById('customer-name').value = '';
+    document.getElementById('customer-email').value = '';
+    document.getElementById('customer-phone').value = '';
+    document.getElementById('customer-notes').value = '';
+    successMsg.textContent = '';
+    closeModal('order-modal');
+  }, 2000);
+}
+
+const closeOrderModal = document.getElementById('close-order-modal');
+if (closeOrderModal) {
+  closeOrderModal.addEventListener('click', () => closeModal('order-modal'));
+}
+
+window.addEventListener('click', (event) => {
+  const adminLoginModal = document.getElementById('admin-login-modal');
+  const adminDashboardModal = document.getElementById('admin-dashboard-modal');
+  const orderModal = document.getElementById('order-modal');
+  
+  if (event.target === adminLoginModal) {
+    closeModal('admin-login-modal');
+  }
+  if (event.target === adminDashboardModal) {
+    closeModal('admin-dashboard-modal');
+  }
+  if (event.target === orderModal) {
+    closeModal('order-modal');
+  }
+});
+
+/* ========================================
+   INITIALIZATION
+   ======================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Load saved language or default to French
+  const savedLanguage = localStorage.getItem('language') || 'fr';
+  setLanguage(savedLanguage);
+  
+  // Initialize all features
+  initNavigation();
+  initHeaderScroll();
+  initContactForm();
+  initSmoothScroll();
+  initScrollAnimations();
+  initAdminButton();
+  initOrderButtons();
+});
+
+// Handle window resize for responsive behavior
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    const navLinks = document.getElementById('nav-links');
+    const menuToggle = document.getElementById('menu-toggle');
+    if (navLinks) {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  }
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artis'Olive Wood — Produits en bois d'olivier. Découvrez notre collection." />
+  <title>Produits - Artis'Olive Wood</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Artis'Olive Wood" class="logo-img" />
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="services.html" data-i18n="nav.services">Artisanat</a></li>
+        <li><a href="products.html" data-i18n="nav.products">Produits</a></li>
+        <li><a href="creations.html" data-i18n="nav.creations">Créations</a></li>
+        <li><a href="process.html" data-i18n="nav.process">Processus</a></li>
+        <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+        </div>
+        <a href="cart.html" class="cart-button" id="cart-button" title="Mon panier">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products section" style="padding-top: 8rem; display: none;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="products.tag">Nos produits</span>
+          <h2 class="section-title" data-i18n="products.title">Produits en Bois d'Olivier</h2>
+          <p class="section-desc" data-i18n="products.desc">Découvrez notre collection complète de produits artisanaux, chacun unique et façonné avec passion.</p>
+        </div>
+        <div class="products-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img src="assets/logo.png" alt="Artis'Olive Wood" style="height: 40px; width: auto;" />
+          </div>
+          <p class="footer-tagline" data-i18n="footer.tagline">Crafted With Passion</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <p class="footer-nav-title" data-i18n="footer.navTitle">Navigation</p>
+          <div class="footer-links">
+            <a href="index.html" data-i18n="hero.title1">Accueil</a>
+            <a href="services.html" data-i18n="nav.services">Artisanat</a>
+            <a href="creations.html" data-i18n="nav.creations">Créations</a>
+            <a href="products.html" data-i18n="nav.products">Produits</a>
+          </div>
+        </nav>
+        <div class="footer-contact">
+          <p class="footer-nav-title" data-i18n="footer.contactTitle">Contact</p>
+          <a href="tel:+21652435930" class="footer-contact-item">52 435 930</a>
+          <a href="mailto:artisolivewood2026@gmail.com" class="footer-contact-item">artisolivewood2026@gmail.com</a>
+          <span class="footer-contact-item">Sfax, Tunisie</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy" data-i18n="footer.copy">© 2026 Artis'Olive Wood. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="admin-btn" id="admin-btn" title="Admin">⚙️</button>
+
+  <div id="admin-login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-login-modal">&times;</span>
+      <h2 data-i18n="admin.login.title">Admin Login</h2>
+      <div class="form-group">
+        <label for="admin-password" data-i18n="admin.login.password">Mot de passe:</label>
+        <input type="password" id="admin-password" placeholder="Entrez le mot de passe">
+      </div>
+      <button class="btn btn-primary" id="admin-login-btn" data-i18n="admin.login.submit">Se connecter</button>
+      <p id="login-error" class="error-message"></p>
+    </div>
+  </div>
+
+  <div id="admin-dashboard-modal" class="modal">
+    <div class="modal-content admin-dashboard">
+      <span class="close" id="close-admin-modal">&times;</span>
+      <h2 data-i18n="admin.dashboard.title">Tableau de bord Admin</h2>
+      
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" data-tab="orders" data-i18n="admin.tabs.orders">Commandes</button>
+        <button class="admin-tab-btn" data-tab="products" data-i18n="admin.tabs.products">Produits</button>
+        <button class="admin-tab-btn" data-tab="stats" data-i18n="admin.tabs.stats">Statistiques</button>
+      </div>
+
+      <div id="orders-tab" class="admin-tab-content active">
+        <h3 data-i18n="admin.orders.title">Commandes reçues</h3>
+        <div id="orders-list" class="orders-list">
+          <p data-i18n="admin.orders.empty">Aucune commande pour le moment</p>
+        </div>
+      </div>
+
+      <div id="products-tab" class="admin-tab-content">
+        <h3>Gestion des produits</h3>
+        <div class="products-management">
+          <button type="button" class="btn btn-primary btn-small" id="add-product-btn">+ Ajouter un produit</button>
+          <div id="products-list" class="products-list"></div>
+        </div>
+      </div>
+
+      <div id="stats-tab" class="admin-tab-content">
+        <h3 data-i18n="admin.stats.title">Statistiques</h3>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-label" data-i18n="admin.stats.total_orders">Total des commandes:</span>
+            <span class="stat-value" id="total-orders">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label" data-i18n="admin.stats.total_items">Total des articles:</span>
+            <span class="stat-value" id="total-items">0</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-outline" id="logout-btn" data-i18n="admin.logout">Déconnexion</button>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div id="order-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-order-modal">&times;</span>
+      <h2 data-i18n="order.title">Confirmer la commande</h2>
+      <div id="order-summary" class="order-summary"></div>
+      <div class="form-group">
+        <label for="customer-name" data-i18n="order.name">Nom:</label>
+        <input type="text" id="customer-name" placeholder="Votre nom">
+      </div>
+      <div class="form-group">
+        <label for="customer-email" data-i18n="order.email">Email:</label>
+        <input type="email" id="customer-email" placeholder="Votre email">
+      </div>
+      <div class="form-group">
+        <label for="customer-phone" data-i18n="order.phone">Téléphone:</label>
+        <input type="tel" id="customer-phone" placeholder="Votre téléphone">
+      </div>
+      <div class="form-group">
+        <label for="customer-notes" data-i18n="order.notes">Notes spéciales:</label>
+        <textarea id="customer-notes" rows="3" placeholder="Remarques supplémentaires"></textarea>
+      </div>
+      <button class="btn btn-primary" id="submit-order-btn" data-i18n="order.submit">Soumettre la commande</button>
+      <p id="order-success" class="success-message"></p>
+    </div>
+  </div>
+
+  <!-- Product Edit Modal -->
+  <div id="product-edit-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-product-modal">&times;</span>
+      <h2>Éditer le produit</h2>
+      <div class="form-group">
+        <label for="product-name">Nom du produit:</label>
+        <input type="text" id="product-name" placeholder="Nom du produit">
+      </div>
+      <div class="form-group">
+        <label for="product-badge">Catégorie/Badge:</label>
+        <input type="text" id="product-badge" placeholder="Ex: Planche, Bol, Ustensile">
+      </div>
+      <div class="form-group">
+        <label for="product-image">Image URL:</label>
+        <input type="text" id="product-image" placeholder="assets/products/board.svg">
+      </div>
+      <div class="form-group">
+        <label for="product-image-upload">Ou télécharger une image :</label>
+        <input type="file" id="product-image-upload" accept="image/*">
+      </div>
+      <div id="product-image-preview" class="product-image-preview"></div>
+      <div class="form-group">
+        <label for="product-desc">Description:</label>
+        <textarea id="product-desc" rows="3" placeholder="Description du produit"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary" id="save-product-btn">Enregistrer</button>
+      <button type="button" class="btn btn-outline" id="delete-product-btn">Supprimer</button>
+    </div>
+  </div>
+
+  <style>
+    :root {
+  --olive-dark: #3d4f38;
+  --olive: #5e7d52;
+  --olive-light: #7a9a6e;
+  --wood: #4b3621;
+  --wood-light: #6b5240;
+  --wood-pale: #d4c4b0;
+  --cream: #ececec;
+  --cream-dark: #e0e0e0;
+  --text: #4b3621;
+  --text-muted: #6b7268;
+  --white: #ffffff;
+  --accent: #5e7d52;
+  --accent-glow: rgba(94, 125, 82, 0.2);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 4px 24px rgba(75, 54, 33, 0.08);
+  --shadow-lg: 0 12px 48px rgba(75, 54, 33, 0.12);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.container {
+  width: min(1140px, 92vw);
+  margin-inline: auto;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.75rem 0;
+  transition: var(--transition);
+  background: rgba(236, 236, 236, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.nav-links a:hover { color: var(--olive); }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lang-switcher {
+  display: flex;
+  background: var(--cream-dark);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  background: var(--white);
+  color: var(--wood);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--wood);
+  border-radius: 2px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--olive);
+  color: var(--white);
+  border-color: var(--olive);
+}
+
+.btn-primary:hover {
+  background: var(--olive-dark);
+  border-color: var(--olive-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--wood);
+  border-color: var(--olive-light);
+}
+
+.btn-outline:hover {
+  background: var(--olive);
+  color: var(--white);
+  border-color: var(--olive);
+}
+
+/* Sections */
+.section { padding: 5rem 0; }
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--wood);
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Products */
+.products { background: var(--white); }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--olive);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+}
+
+.product-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--wood);
+  padding: 1rem 1.25rem 0.5rem;
+}
+
+.product-card > p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0 1.25rem 1rem;
+  flex: 1;
+  line-height: 1.55;
+}
+
+/* Footer */
+.footer {
+  background: var(--wood);
+  color: var(--white);
+  padding: 3rem 0 2rem;
+  margin-top: 3rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: var(--wood-pale);
+}
+
+.footer-nav,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-title,
+.footer-contact-item {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a,
+.footer-contact-item {
+  text-decoration: none;
+  color: var(--wood-pale);
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--wood-pale);
+}
+
+/* Admin Button */
+.admin-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--olive);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  z-index: 50;
+}
+
+.admin-btn:hover {
+  background: var(--olive-dark);
+  transform: scale(1.1);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-content h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.close {
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.close:hover {
+  color: var(--text);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--olive);
+}
+
+.error-message {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.success-message {
+  color: #5cb85c;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Admin Dashboard */
+.admin-dashboard {
+  max-width: 800px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.admin-tab-btn {
+  background: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+}
+
+.admin-tab-btn.active {
+  color: var(--olive);
+  border-bottom-color: var(--olive);
+}
+
+.admin-tab-content {
+  display: none;
+}
+
+.admin-tab-content.active {
+  display: block;
+}
+
+.orders-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.order-item {
+  background: var(--cream);
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.order-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.order-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-box {
+  background: var(--cream);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--olive);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: flex;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    gap: 0;
+    border-radius: 0;
+    box-shadow: var(--shadow);
+    z-index: 99;
+  }
+  
+  .nav-links.active li a {
+    display: block;
+    padding: 1rem;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+
+  <script src="app.js"></script>
+</body>
+</html>
