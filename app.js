@@ -766,19 +766,8 @@ function initContactForm() {
   const form = document.getElementById('contact-form');
   
   if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      
-      // Here you would typically send the data to a server
-      console.log('Form submitted:', data);
-      
-      // Show success message
-      alert('Merci pour votre message! Nous vous répondrons bientôt.' + (currentLanguage === 'en' ? '\nThank you for your message! We will reply soon.' : currentLanguage === 'de' ? '\nDanke für Ihre Nachricht! Wir werden bald antworten.' : ''));
-      form.reset();
-    });
+    // FormSubmit handles the email sending, form will submit naturally
+    // No need to prevent default or add custom handling
   }
 }
 
